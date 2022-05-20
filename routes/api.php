@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\ProductDetailsController;
+use App\Http\Controllers\Admin\NotificationController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
@@ -38,3 +39,6 @@ Route::get('/all-slider-details', [HomeSliderController::class, 'AllSliderDetail
 
 // product details
 Route::get('/product-details/{id}', [ProductDetailsController::class, 'ProductDetails']);
+
+// notification
+Route::get('/notification', [NotificationController::class, 'NotificationHistory']);
