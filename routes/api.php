@@ -76,4 +76,4 @@ Route::get('/search/{key}', [ProductController::class, 'ProductBySearch']);
 Route::get('/similar/{subcategory}', [ProductController::class, 'SimilarProduct']);
 
 // review
-Route::get('/reviewlist/{id}', [ReviewController::class, 'ReviewList']);
+Route::get('/review-list/{product_code}', [ReviewController::class, 'ReviewList']);
