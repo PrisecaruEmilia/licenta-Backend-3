@@ -19,6 +19,7 @@ class FavoriteController extends Controller
 
         $result = Favorites::insert([
 
+            'product_id' => $productDetails[0]['id'],
             'product_name' => $productDetails[0]['name'],
             'image' => $productDetails[0]['image'],
             'product_code' => $product_code,
