@@ -46,4 +46,12 @@ class ProductCartController extends Controller
 
         return $result;
     }
+
+    public function CartCount(Request $request)
+    {
+        // $product_code = $request->product_code;
+        $email = $request->email;
+        $result = ProductCart::where('email', $email)->count();
+        return $result;
+    }
 }
