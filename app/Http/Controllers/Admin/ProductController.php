@@ -42,4 +42,11 @@ class ProductController extends Controller
         $productList = Product::where('subcategory', $subcategory)->orderBy('id', 'desc')->limit(8)->get();
         return $productList;
     }
+
+    public function GetProductByCode(Request $request)
+    {
+        $product_code = $request->product_code;
+        $result = Product::where('product_code', $product_code)->get();
+        return $result;
+    }
 }
