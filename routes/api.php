@@ -93,3 +93,6 @@ Route::post('/add-favorite/{product_code}/{email}', [FavoriteController::class, 
 Route::get('/favorite-list/{email}', [FavoriteController::class, 'FavoriteList']);
 
 Route::get('/product/{product_code}', [ProductController::class, 'GetProductByCode']);
+
+// remove favourite
+Route::get('/favorite-remove/{product_code}/{email}', [FavoriteController::class, 'FavoriteRemove']);
