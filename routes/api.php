@@ -93,6 +93,10 @@ Route::get('/cart-list/{email}', [ProductCartController::class, 'CartList']);
 // remove item from cart
 Route::get('/remove-cart-list/{id}', [ProductCartController::class, 'RemoveCartList']);
 
+Route::get('/cart-item-plus/{id}/{quantity}/{price}', [ProductCartController::class, 'CartItemPlus']);
+
+Route::get('/cart-item-minus/{id}/{quantity}/{price}', [ProductCartController::class, 'CartItemMinus']);
+
 // favourite
 Route::post('/add-favorite/{product_code}/{email}', [FavoriteController::class, 'AddFavorite']);
 

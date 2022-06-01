@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProductCart;
 use App\Models\Product;
+use App\Models\ProductDetails;
 
 class ProductCartController extends Controller
 {
@@ -67,6 +68,37 @@ class ProductCartController extends Controller
 
         $id = $request->id;
         $result = ProductCart::where('id', $id)->delete();
+        return $result;
+    }
+
+    public function CartItemPlus(Request $request)
+    {
+        $id = $request->id;
+        $quantity = $request->quantity;
+        $price = $request->price;
+        $product_code = $request->product_code;
+        $product = Product::where('product_code', $product_code)->get();
+        $productMaxQty = ProductDetails::where('product_id', $product->id)->get();
+        if ($productMaxQty->qty >= $quantity) {
+            $newQuantity = $quantity + 1;
+        }
+        $total_price = $newQuantity * $price;
+        $result = ProductCart::where('id', $id)->update(['quantity' => $newQuantity, 'total_price' => $total_price]);
+
+        return $result;
+    }
+
+    public function CartItemMinus(Request $request)
+    {
+        $id = $request->id;
+        $quantity = $request->quantity;
+        $price = $request->price;
+        if ($quantity >= 0) {
+            $newQuantity = $quantity - 1;
+        }
+        $total_price = $newQuantity * $price;
+        $result = ProductCart::where('id', $id)->update(['quantity' => $newQuantity, 'total_price' => $total_price]);
+
         return $result;
     }
 }
