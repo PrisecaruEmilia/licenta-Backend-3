@@ -76,13 +76,13 @@ class ProductCartController extends Controller
         $id = $request->id;
         $quantity = $request->quantity;
         $price = $request->price;
-        $product_code = $request->product_code;
-        $product = Product::where('product_code', $product_code)->get();
-        $productMaxQty = ProductDetails::where('product_id', $product->id)->get();
-        if ($productMaxQty->qty >= $quantity) {
-            $newQuantity = $quantity + 1;
-        }
-        $total_price = $newQuantity * $price;
+        // $product_code = $request->product_code;
+        // $product = Product::where('product_code', $product_code)->get();
+        // $productMaxQty = ProductDetails::where('product_id', $product->id)->get();
+
+        $newQuantity = intval($quantity) + 1;
+
+        $total_price = intval($newQuantity) * floatval($price);
         $result = ProductCart::where('id', $id)->update(['quantity' => $newQuantity, 'total_price' => $total_price]);
 
         return $result;
@@ -93,10 +93,8 @@ class ProductCartController extends Controller
         $id = $request->id;
         $quantity = $request->quantity;
         $price = $request->price;
-        if ($quantity >= 0) {
-            $newQuantity = $quantity - 1;
-        }
-        $total_price = $newQuantity * $price;
+        $newQuantity = intval($quantity) - 1;
+        $total_price = intval($newQuantity) * floatval($price);
         $result = ProductCart::where('id', $id)->update(['quantity' => $newQuantity, 'total_price' => $total_price]);
 
         return $result;
