@@ -90,6 +90,9 @@ Route::get('/cart-count/{email}', [ProductCartController::class, 'CartCount']);
 // cart list
 Route::get('/cart-list/{email}', [ProductCartController::class, 'CartList']);
 
+// remove item from cart
+Route::get('/remove-cart-list/{id}', [ProductCartController::class, 'RemoveCartList']);
+
 // favourite
 Route::post('/add-favorite/{product_code}/{email}', [FavoriteController::class, 'AddFavorite']);
 
