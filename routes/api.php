@@ -100,6 +100,9 @@ Route::get('/cart-item-minus/{id}/{quantity}/{price}', [ProductCartController::c
 // cart order
 Route::post('/cart-order', [ProductCartController::class, 'CartOrder']);
 
+// order history
+Route::get('/order-list-by-user/{email}', [ProductCartController::class, 'OrderListByUser']);
+
 // favourite
 Route::post('/add-favorite/{product_code}/{email}', [FavoriteController::class, 'AddFavorite']);
 
