@@ -103,6 +103,9 @@ Route::post('/cart-order', [ProductCartController::class, 'CartOrder']);
 // order history
 Route::get('/order-list-by-user/{email}', [ProductCartController::class, 'OrderListByUser']);
 
+// post product review
+Route::post('/post-review', [ReviewController::class, 'PostReview']);
+
 // favourite
 Route::post('/add-favorite/{product_code}/{email}', [FavoriteController::class, 'AddFavorite']);
 
