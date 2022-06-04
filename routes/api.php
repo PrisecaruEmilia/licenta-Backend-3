@@ -56,6 +56,10 @@ Route::get('/all-category', [CategoryController::class, 'AllCategory']);
 
 
 // product list
+
+Route::get('/product-list', [ProductController::class, 'AllProductList']);
+
+
 Route::get('/product-list-remark/{remark}', [ProductController::class, 'ProductListByRemark']);
 
 Route::get('/product-list-category/{category}', [ProductController::class, 'ProductListByCategory']);

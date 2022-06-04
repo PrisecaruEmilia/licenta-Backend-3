@@ -8,6 +8,11 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+    public function AllProductList()
+    {
+        $productList  = Product::all();
+        return $productList;
+    }
     public function ProductListByRemark(Request $request)
     {
         $remark = $request->remark;
