@@ -39,7 +39,9 @@
                             <form method="post" action="{{ route('change.password.update') }}">
                                 @csrf
 
-
+                                @foreach ($errors->all() as $error)
+                                    <p class="text-danger"> {{ $error }} </p>
+                                @endforeach
 
                                 <div class="card">
                                     <div class="card-body">
