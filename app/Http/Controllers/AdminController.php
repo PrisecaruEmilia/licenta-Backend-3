@@ -36,6 +36,11 @@ class AdminController extends Controller
         }
         $data->save();
 
-        return redirect()->route('user.profile');
+        $notification = array(
+            'message' => 'Profilul a fost actualizat cu succes!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('user.profile')->with($notification);
     }
 }
