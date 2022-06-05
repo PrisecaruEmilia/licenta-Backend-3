@@ -29,3 +29,8 @@ Route::middleware([
 
 // admin logout route
 Route::get('/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+
+Route::prefix('admin')->group(function () {
+
+    Route::get('/user/profile', [AdminController::class, 'UserProfile'])->name('user.profile');
+});
