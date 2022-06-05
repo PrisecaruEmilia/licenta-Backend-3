@@ -20,4 +20,8 @@ class AdminController extends Controller
         $adminData = User::find(1);
         return view('backend.admin.admin_profile', compact('adminData'));
     }
+
+    public function UserProfileStore(Request $request)
+    {
+    }
 }
