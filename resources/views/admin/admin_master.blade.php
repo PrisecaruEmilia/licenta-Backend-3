@@ -190,6 +190,36 @@
             }
         @endif
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $(document).on('click', '#delete', function(e) {
+                e.preventDefault();
+                var link = $(this).attr("href");
+
+                Swal.fire({
+                    title: 'Ești sigur?',
+                    text: "Vrei să ștergi această înregistrare?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Da, șterge!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link
+                        Swal.fire(
+                            'Șters!',
+                            'Înregistrarea a fost ștearsă.',
+                            'success'
+                        )
+                    }
+                })
+            });
+        });
+    </script>
 </body>
 
 </html>
