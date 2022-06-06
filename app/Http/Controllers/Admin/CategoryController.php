@@ -76,5 +76,39 @@ class CategoryController extends Controller
 
     public function UpdateCategory(Request $request)
     {
+        $category_id = $request->id;
+
+        if ($request->file('category_image')) {
+
+            $image = $request->file('category_image');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(500, 500)->save('upload/category/' . $name_gen);
+            $save_url = 'http://127.0.0.1:8000/upload/category/' . $name_gen;
+
+            Category::findOrFail($category_id)->update([
+                'category_name' => $request->category_name,
+                'category_image' => $save_url,
+            ]);
+
+            $notification = array(
+                'message' => 'Categoria a fost editată cu succes - cu imagine',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('all.category')->with($notification);
+        } else {
+
+            Category::findOrFail($category_id)->update([
+                'category_name' => $request->category_name,
+
+            ]);
+
+            $notification = array(
+                'message' => 'Categoria a fost editată cu succes - fără imagine',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('all.category')->with($notification);
+        }
     }
 }
