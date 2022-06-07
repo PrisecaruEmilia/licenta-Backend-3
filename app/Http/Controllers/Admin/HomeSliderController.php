@@ -86,4 +86,17 @@ class HomeSliderController extends Controller
 
         return redirect()->route('all.slider')->with($notification);
     }
+
+    public function DeleteSlider($id)
+    {
+
+        HomeSlider::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Slider șters cu succes!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }

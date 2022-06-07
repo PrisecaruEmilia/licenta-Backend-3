@@ -85,5 +85,5 @@ Route::prefix('slider')->group(function () {
 
     Route::post('/update', [HomeSliderController::class, 'UpdateSlider'])->name('slider.update');
 
-    Route::get('/delete/{id}', [CategoryController::class, 'DeleteSubCategory'])->name('subcategory.delete');
+    Route::get('/delete/{id}', [HomeSliderController::class, 'DeleteSlider'])->name('slider.delete');
 });
