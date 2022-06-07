@@ -140,4 +140,30 @@ class CategoryController extends Controller
         $category = Category::latest()->get();
         return view('backend.subcategory.subcategory_add', compact('category'));
     }
+
+    public function StoreSubCategory(Request $request)
+    {
+
+
+        $request->validate([
+            'subcategory_name' => 'required',
+        ], [
+            'subcategory_name.required' => 'Câmpul nume subcategorie este obligatoriu'
+
+        ]);
+
+
+
+        Subcategory::insert([
+            'category_name' => $request->category_name,
+            'subcategory_name' => $request->subcategory_name,
+        ]);
+
+        $notification = array(
+            'message' => 'Subcategoria a fost inserată cu succes!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.subcategory')->with($notification);
+    }
 }
