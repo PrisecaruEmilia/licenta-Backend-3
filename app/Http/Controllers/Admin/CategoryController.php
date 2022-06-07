@@ -192,4 +192,16 @@ class CategoryController extends Controller
 
         return redirect()->route('all.subcategory')->with($notification);
     }
+
+    public function DeleteSubCategory($id)
+    {
+
+        Subcategory::findOrFail($id)->delete();
+        $notification = array(
+            'message' => 'Subategoria a fost ștearsă cu succes!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }
