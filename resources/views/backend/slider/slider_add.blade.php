@@ -41,7 +41,7 @@
 
 
 
-                            <form method="post" action="{{ route('category.store') }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('slider.store') }}" enctype="multipart/form-data">
                                 @csrf
 
 
@@ -54,7 +54,11 @@
                                             <h5> Imagine Slider </h5>
                                             <div class="mb-3">
                                                 <label for="formFile" class="form-label">Încarcă Imaginea</label>
-                                                <input class="form-control" name="category_image" type="file" id="image">
+                                                <input class="form-control" name="slider_image" type="file" id="image">
+
+                                                @error('slider_image')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
 
 
