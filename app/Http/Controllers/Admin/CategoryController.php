@@ -174,4 +174,22 @@ class CategoryController extends Controller
         $subcategory = Subcategory::findOrFail($id);
         return view('backend.subcategory.subcategory_edit', compact('category', 'subcategory'));
     }
+
+    public function UpdateSubCategory(Request $request)
+    {
+
+        $subcategory_id = $request->id;
+
+        Subcategory::findOrFail($subcategory_id)->update([
+            'category_name' => $request->category_name,
+            'subcategory_name' => $request->subcategory_name,
+        ]);
+
+        $notification = array(
+            'message' => 'Subcategoria a fost editată cu succes',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.subcategory')->with($notification);
+    }
 }
