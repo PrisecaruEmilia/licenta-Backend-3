@@ -7,13 +7,13 @@
         <div class="page-content">
             <!--breadcrumb-->
             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                <div class="breadcrumb-title pe-3">Adaugă Subcategorie</div>
+                <div class="breadcrumb-title pe-3">Editează Subcategoria</div>
                 <div class="ps-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 p-0">
                             <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Adaugă Subcategorie</li>
+                            <li class="breadcrumb-item active" aria-current="page">Editează Subcategoria</li>
                         </ol>
                     </nav>
                 </div>
@@ -56,9 +56,10 @@
 
                                                 <select name="category_name" class="form-select mb-3"
                                                     aria-label="Default select example">
-                                                    <option selected="">Alege Categorie</option>
+                                                    <option selected="">Alege categoria</option>
                                                     @foreach ($category as $item)
-                                                        <option value="{{ $item->category_name }}">
+                                                        <option value="{{ $item->category_name }}"
+                                                            {{ $item->category_name == $subcategory->category_name ? 'selected' : '' }}>
                                                             {{ $item->category_name }}</option>
                                                     @endforeach
                                                 </select>
@@ -74,7 +75,8 @@
                                                 <h6 class="mb-0">Nume Subcategorie </h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" name="subcategory_name" class="form-control" value=" ">
+                                                <input type="text" name="subcategory_name" class="form-control"
+                                                    value="{{ $subcategory->subcategory_name }}">
                                                 @error('subcategory_name')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -86,14 +88,10 @@
 
 
 
-
-
-
-
                                         <div class="row">
                                             <div class="col-sm-3"></div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="submit" class="btn btn-primary px-4" value="Adaugă">
+                                                <input type="submit" class="btn btn-primary px-4" value="Editează">
                                             </div>
                                         </div>
                                     </div>

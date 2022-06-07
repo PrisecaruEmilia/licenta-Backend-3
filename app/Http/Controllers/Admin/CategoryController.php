@@ -166,4 +166,12 @@ class CategoryController extends Controller
 
         return redirect()->route('all.subcategory')->with($notification);
     }
+
+    public function EditSubCategory($id)
+    {
+
+        $category = Category::orderBy('category_name', 'ASC')->get();
+        $subcategory = Subcategory::findOrFail($id);
+        return view('backend.subcategory.subcategory_edit', compact('category', 'subcategory'));
+    }
 }
