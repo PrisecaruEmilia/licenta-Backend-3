@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\Subcategory;
+use Image;
 
 class ProductController extends Controller
 {
@@ -60,5 +63,12 @@ class ProductController extends Controller
 
         $products = Product::latest()->paginate(10);
         return view('backend.product.product_all', compact('products'));
+    }
+    public function AddProduct()
+    {
+
+        $category = Category::orderBy('category_name', 'ASC')->get();
+        $subcategory = Subcategory::orderBy('subcategory_name', 'ASC')->get();
+        return view('backend.product.product_add', compact('category', 'subcategory'));
     }
 }
