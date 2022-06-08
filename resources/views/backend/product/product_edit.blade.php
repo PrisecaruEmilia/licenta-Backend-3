@@ -76,37 +76,64 @@
                                             <input class="form-control" name="image_one" type="file" id="image_one">
                                         </div>
 
+                                        @foreach ($details as $item)
+                                            <div class="mb-3">
+                                                <img id="showImage1" src="{{ asset($item->image_one) }}"
+                                                    style="width:100px; height: 100px;">
+                                            </div>
+                                        @endforeach
+
                                         <div class="mb-3">
                                             <label for="image_two" class="form-label">Imagine 2</label>
                                             <input class="form-control" name="image_two" type="file" id="image_two">
                                         </div>
+
+                                        @foreach ($details as $item)
+                                            <div class="mb-3">
+                                                <img id="showImage2" src="{{ asset($item->image_two) }}"
+                                                    style="width:100px; height: 100px;">
+                                            </div>
+                                        @endforeach
 
                                         <div class="mb-3">
                                             <label for="image_three" class="form-label">Imagine 3</label>
                                             <input class="form-control" name="image_three" type="file" id="image_three">
                                         </div>
 
+                                        @foreach ($details as $item)
+                                            <div class="mb-3">
+                                                <img id="showImage3" src="{{ asset($item->image_three) }}"
+                                                    style="width:100px; height: 100px;">
+                                            </div>
+                                        @endforeach
+
                                         <div class="mb-3">
                                             <label for="image_four" class="form-label">Imagine 4</label>
                                             <input class="form-control" name="image_four" type="file" , id="image_four">
                                         </div>
 
+                                        @foreach ($details as $item)
+                                            <div class="mb-3">
+                                                <img id="showImage4" src="{{ asset($item->image_four) }}"
+                                                    style="width:100px; height: 100px;">
+                                            </div>
+                                        @endforeach
 
 
+                                        @foreach ($details as $item)
+                                            <div class="mb-3">
+                                                <label for="inputProductShortDescription" class="form-label">Scurtă
+                                                    Descriere</label>
+                                                <textarea name="short_description" class="form-control" id="inputProductShortDescription" rows="3">{{ $item->short_description }}</textarea>
+                                            </div>
 
-                                        <div class="mb-3">
-                                            <label for="inputProductShortDescription" class="form-label">Scurtă
-                                                Descriere</label>
-                                            <textarea name="short_description" class="form-control" id="inputProductShortDescription" rows="3"></textarea>
-                                        </div>
 
-
-                                        <div class="mb-3">
-                                            <label for="inputProductLongDescription" class="form-label">Descriere
-                                                Lungă</label>
-                                            <textarea id="mytextarea" name="long_description">Hello, World!</textarea>
-                                        </div>
-
+                                            <div class="mb-3">
+                                                <label for="inputProductLongDescription" class="form-label">Descriere
+                                                    Lungă</label>
+                                                <textarea id="mytextarea" name="long_description">{{ $item->long_description }}</textarea>
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
 
@@ -130,11 +157,13 @@
                                                     id="inputSpecial" value="{{ $product->special_price }}">
                                             </div>
 
-                                            <div class="col-12">
-                                                <label for="inputQty" class="form-label">Cantitate</label>
-                                                <input type="text" name="qty" class="form-control" id="inputQty">
-                                            </div>
-
+                                            @foreach ($details as $item)
+                                                <div class="col-12">
+                                                    <label for="inputQty" class="form-label">Cantitate</label>
+                                                    <input type="text" name="qty" class="form-control" id="inputQty"
+                                                        value="{{ $item->qty }}">
+                                                </div>
+                                            @endforeach
                                             {{-- !! --}}
 
 
@@ -179,21 +208,20 @@
                                                 </select>
                                             </div>
 
-
-                                            <div class="mb-3">
-                                                <label class="form-label">Mărime</label>
-                                                <input type="text" name="size" class="form-control visually-hidden"
-                                                    data-role="tagsinput" value="40,41,43,45">
-                                            </div>
-
-
-                                            <div class="mb-3">
-                                                <label class="form-label">Culoare</label>
-                                                <input type="text" name="color" class="form-control visually-hidden"
-                                                    data-role="tagsinput" value="negru,alb,roșu">
-                                            </div>
+                                            @foreach ($details as $item)
+                                                <div class="mb-3">
+                                                    <label class="form-label">Mărime</label>
+                                                    <input type="text" name="size" class="form-control visually-hidden"
+                                                        data-role="tagsinput" value="{{ $item->size }}">
+                                                </div>
 
 
+                                                <div class="mb-3">
+                                                    <label class="form-label">Culoare</label>
+                                                    <input type="text" name="color" class="form-control visually-hidden"
+                                                        data-role="tagsinput" value={{ $item->color }}>
+                                                </div>
+                                            @endforeach
                                             <div class="form-check">
                                                 <input class="form-check-input" name="remark" type="checkbox"
                                                     value="featured" id="flexCheckDefault1"
@@ -256,6 +284,34 @@
                 var reader = new FileReader();
                 reader.onload = function(e) {
                     $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+            $('#image_one').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage1').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+            $('#image_two').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage2').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+            $('#image_three').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage3').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+            $('#image_four').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage4').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(e.target.files['0']);
             });
