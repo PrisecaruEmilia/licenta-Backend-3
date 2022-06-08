@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeSliderController;
+
+use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -86,4 +88,20 @@ Route::prefix('slider')->group(function () {
     Route::post('/update', [HomeSliderController::class, 'UpdateSlider'])->name('slider.update');
 
     Route::get('/delete/{id}', [HomeSliderController::class, 'DeleteSlider'])->name('slider.delete');
+});
+
+
+Route::prefix('product')->group(function () {
+
+    Route::get('/all', [ProductController::class, 'GetAllProduct'])->name('all.product');
+
+    Route::get('/add', [SliderController::class, 'AddSlider'])->name('add.slider');
+
+    Route::post('/store', [SliderController::class, 'StoreSlider'])->name('slider.store');
+
+    Route::get('/edit/{id}', [SliderController::class, 'EditSlider'])->name('slider.edit');
+
+    Route::post('/update', [SliderController::class, 'UpdateSlider'])->name('slider.update');
+
+    Route::get('/delete/{id}', [SliderController::class, 'DeleteSlider'])->name('slider.delete');
 });

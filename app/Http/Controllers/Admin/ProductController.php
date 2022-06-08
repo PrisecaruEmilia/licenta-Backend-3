@@ -54,4 +54,11 @@ class ProductController extends Controller
         $result = Product::where('product_code', $product_code)->get();
         return $result;
     }
+
+    public function GetAllProduct()
+    {
+
+        $products = Product::latest()->get();
+        return view('backend.product.product_all', compact('products'));
+    }
 }
