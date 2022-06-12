@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeSliderController;
 
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -105,3 +106,6 @@ Route::prefix('product')->group(function () {
 
     Route::get('/delete/{id}', [ProductController::class, 'DeleteProduct'])->name('product.delete');
 });
+
+
+Route::get('/all/message', [ContactController::class, 'GetAllMessage'])->name('contact.message');
