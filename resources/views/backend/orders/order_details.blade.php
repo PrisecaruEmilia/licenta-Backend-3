@@ -33,11 +33,33 @@
                                 <div class="card-body">
 
                                     <ul class="list-group">
-                                        <li class="list-group-item">An item</li>
-                                        <li class="list-group-item">A second item</li>
-                                        <li class="list-group-item">A third item</li>
-                                        <li class="list-group-item">A fourth item</li>
-                                        <li class="list-group-item">And a fifth one</li>
+                                        <li class="list-group-item"><strong> <span class="text-dark"> Nume Produs :
+                                                </span> </strong> {{ $order->product_name }} </li>
+
+                                        <li class="list-group-item"><strong> <span class="text-dark"> Cod Produs :
+                                                </span> </strong> {{ $order->product_code }} </li>
+
+                                        <li class="list-group-item"><strong> <span class="text-dark"> Mărime Produs :
+                                                </span> </strong> {{ $order->size }} </li>
+
+                                        <li class="list-group-item"><strong> <span class="text-dark"> Culoare Produs :
+                                                </span> </strong> {{ $order->color }} </li>
+
+                                        <li class="list-group-item"><strong> <span class="text-dark"> Cantitate Produs
+                                                    : </span> </strong> {{ $order->quantity }} </li>
+
+                                        <li class="list-group-item"><strong> <span class="text-dark"> Preț pe Unitate :
+                                                </span> </strong> {{ $order->unit_price }} </li>
+
+                                        <li class="list-group-item"><strong> <span class="text-dark"> Preț Total :
+                                                </span> </strong> {{ $order->total_price }} </li>
+
+                                        <li class="list-group-item"><strong> <span class="text-dark"> Email Utilizator
+                                                    :
+                                                </span> </strong> {{ $order->email }} </li>
+
+                                        <li class="list-group-item"><strong> <span class="text-dark"> Nume Utilizator :
+                                                </span> </strong> {{ $order->name }} </li>
                                     </ul>
 
                                 </div>
