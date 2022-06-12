@@ -185,6 +185,36 @@ class ProductCartController extends Controller
     {
 
         $order = CartOrder::findOrFail($id);
+        if ($order->payment_method === 'cash_on_delivery') {
+            CartOrder::findOrFail($id)->update(['payment_method' => 'Cash la livrare']);
+        }
         return view('backend.orders.order_details', compact('order'));
+    }
+
+    public function PendingToProcessing($id)
+    {
+
+        CartOrder::findOrFail($id)->update(['order_status' => 'Processing']);
+
+        $notification = array(
+            'message' => 'Comandă procesată cu succes!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('pending.order')->with($notification);
+    } // End Method
+
+
+    public function ProcessingToComplete($id)
+    {
+
+        CartOrder::findOrFail($id)->update(['order_status' => 'Complete']);
+
+        $notification = array(
+            'message' => 'Comandă procesată cu succes!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('processing.order')->with($notification);
     }
 }

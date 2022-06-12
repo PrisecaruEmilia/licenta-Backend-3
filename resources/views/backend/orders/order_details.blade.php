@@ -108,9 +108,11 @@
                                             <br>
 
                                             @if ($order->order_status == 'Pending')
-                                                <a href="" class="btn btn-block btn-success"> Procesare Comandă</a>
+                                                <a href="{{ route('pending.processing', $order->id) }}"
+                                                    class="btn btn-block btn-success"> Procesare Comandă</a>
                                             @elseif($order->order_status == 'Processing')
-                                                <a href="" class="btn btn-block btn-success"> Completare Comandă</a>
+                                                <a href="{{ route('processing.complete', $order->id) }}"
+                                                    class="btn btn-block btn-success"> Completare Comandă</a>
                                             @endif
                                         </ul>
 
