@@ -35,7 +35,7 @@
         </li>
         <li>
             <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+                <div class="parent-icon"><i class='fadeIn animated bx bx-cabinet'></i>
                 </div>
                 <div class="menu-title">SubCategorie</div>
             </a>

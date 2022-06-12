@@ -22,7 +22,7 @@
                                     <th>SL</th>
                                     <th>Imagine Categorie</th>
                                     <th>Nume Categorie</th>
-                                    <th>Action</th>
+                                    <th>Acțiune</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,10 +43,11 @@
                                         <td>{{ $item->category_name }}</td>
 
                                         <td>
-                                            <a href="{{ route('category.edit', $item->id) }}" class="btn btn-info">Edit
+                                            <a href="{{ route('category.edit', $item->id) }}" class="btn btn-info"><i
+                                                    class="lni lni-pencil-alt"></i>
                                             </a>
                                             <a href="{{ route('category.delete', $item->id) }}" class="btn btn-danger"
-                                                id="delete">Delete </a>
+                                                id="delete"><i class="lni lni-trash"></i> </a>
 
                                         </td>
                                     </tr>

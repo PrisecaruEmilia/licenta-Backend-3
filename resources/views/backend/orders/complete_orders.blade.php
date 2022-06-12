@@ -26,7 +26,7 @@
                                     <th>Preț Total </th>
                                     <th>Data </th>
                                     <th>Status </th>
-                                    <th>Action</th>
+                                    <th>Acțiune</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,7 +44,8 @@
                                             </strong> </td>
 
                                         <td>
-                                            <a href="{{ route('order.delete', $item->id) }}" class="btn btn-danger">Delete
+                                            <a href="{{ route('order.delete', $item->id) }}" class="btn btn-danger"><i
+                                                    class="lni lni-trash"></i>
                                             </a>
 
 

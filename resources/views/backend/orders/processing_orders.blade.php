@@ -26,7 +26,7 @@
                                     <th>Preț Total </th>
                                     <th>Data </th>
                                     <th>Status </th>
-                                    <th>Action</th>
+                                    <th>Acțiune</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,7 +45,7 @@
 
                                         <td>
                                             <a href="{{ route('order.details', $item->id) }}"
-                                                class="btn btn-info">Details </a>
+                                                class="btn btn-info">Detalii </a>
 
 
                                         </td>

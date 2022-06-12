@@ -21,7 +21,7 @@
                                 <tr>
                                     <th>SL</th>
                                     <th>Imagine </th>
-                                    <th>Action</th>
+                                    <th>Acțiune</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,10 +41,11 @@
 
 
                                         <td>
-                                            <a href="{{ route('slider.edit', $item->id) }}" class="btn btn-info">Edit
+                                            <a href="{{ route('slider.edit', $item->id) }}" class="btn btn-info"><i
+                                                    class="lni lni-pencil-alt"></i>
                                             </a>
                                             <a href="{{ route('slider.delete', $item->id) }}" class="btn btn-danger"
-                                                id="delete">Delete </a>
+                                                id="delete"><i class="lni lni-trash"></i> </a>
 
                                         </td>
                                     </tr>

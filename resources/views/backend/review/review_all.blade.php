@@ -24,7 +24,7 @@
                                     <th>Nume Reviewer </th>
                                     <th>Stele </th>
                                     <th>Comentarii </th>
-                                    <th>Action</th>
+                                    <th>Acțiune</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,7 +41,7 @@
                                         <td>
 
                                             <a href="{{ route('review.delete', $item->id) }}" class="btn btn-danger"
-                                                id="delete">Delete </a>
+                                                id="delete"><i class="lni lni-trash"></i> </a>
 
                                         </td>
                                     </tr>
