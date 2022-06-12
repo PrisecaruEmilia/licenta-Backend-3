@@ -115,3 +115,4 @@ Route::get('/message/delete/{id}', [ContactController::class, 'DeleteMessage'])-
 
 // review
 Route::get('/all/review', [ReviewController::class, 'GetAllReview'])->name('all.review');
+Route::get('/review/delete/{id}', [ReviewController::class, 'DeleteReview'])->name('review.delete');

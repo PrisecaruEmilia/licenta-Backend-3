@@ -43,4 +43,16 @@ class ReviewController extends Controller
         $review = ProductReview::latest()->get();
         return view('backend.review.review_all', compact('review'));
     }
+
+    public function DeleteReview($id)
+    {
+        ProductReview::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Review șters cu succes!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }
