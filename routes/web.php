@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SiteInfoController;
+use App\Http\Controllers\Admin\ProductCartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -123,3 +124,9 @@ Route::get('/review/delete/{id}', [ReviewController::class, 'DeleteReview'])->na
 Route::get('/getsite/info', [SiteInfoController::class, 'GetSiteInfo'])->name('getsite.info');
 
 Route::post('/update/siteinfo', [SiteInfoController::class, 'UpdateSiteInfo'])->name('update.siteinfo');
+
+
+Route::prefix('order')->group(function () {
+
+    Route::get('/pending', [ProductCartController::class, 'PendingOrder'])->name('pending.order');
+});
