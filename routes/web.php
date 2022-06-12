@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\SiteInfoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -116,3 +117,7 @@ Route::get('/message/delete/{id}', [ContactController::class, 'DeleteMessage'])-
 // review
 Route::get('/all/review', [ReviewController::class, 'GetAllReview'])->name('all.review');
 Route::get('/review/delete/{id}', [ReviewController::class, 'DeleteReview'])->name('review.delete');
+
+
+// site info
+Route::get('/getsite/info', [SiteInfoController::class, 'GetSiteInfo'])->name('getsite.info');
