@@ -180,4 +180,11 @@ class ProductCartController extends Controller
         $orders = CartOrder::where('order_status', 'Complete')->orderBy('id', 'DESC')->get();
         return view('backend.orders.complete_orders', compact('orders'));
     }
+
+    public function OrderDetails($id)
+    {
+
+        $order = CartOrder::findOrFail($id);
+        return view('backend.orders.order_details', compact('order'));
+    }
 }
