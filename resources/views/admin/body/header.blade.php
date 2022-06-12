@@ -331,7 +331,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="{{ route('user.profile') }}"><i
-                                class="bx bx-user"></i><span>Profile</span></a>
+                                class="bx bx-user"></i><span>Profil</span></a>
                     </li>
                     <li><a class="dropdown-item" href="{{ route('change.password') }}"><i
                                 class="bx bx-cog"></i><span>Schimbă
