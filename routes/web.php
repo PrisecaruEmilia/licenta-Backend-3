@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HomeSliderController;
 
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\ReviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -110,3 +111,7 @@ Route::prefix('product')->group(function () {
 
 Route::get('/all/message', [ContactController::class, 'GetAllMessage'])->name('contact.message');
 Route::get('/message/delete/{id}', [ContactController::class, 'DeleteMessage'])->name('message.delete');
+
+
+// review
+Route::get('/all/review', [ReviewController::class, 'GetAllReview'])->name('all.review');
