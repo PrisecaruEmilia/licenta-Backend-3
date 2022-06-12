@@ -217,4 +217,16 @@ class ProductCartController extends Controller
 
         return redirect()->route('processing.order')->with($notification);
     }
+
+    public function DeleteCartOrder($id)
+    {
+        CartOrder::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Comandă ștearsă cu succes!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }

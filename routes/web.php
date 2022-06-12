@@ -139,4 +139,6 @@ Route::prefix('order')->group(function () {
     Route::get('/status/processing/{id}', [ProductCartController::class, 'PendingToProcessing'])->name('pending.processing');
 
     Route::get('/status/complete/{id}', [ProductCartController::class, 'ProcessingToComplete'])->name('processing.complete');
+
+    Route::get('/order/delete/{id}', [ProductCartController::class, 'DeleteCartOrder'])->name('order.delete');
 });
