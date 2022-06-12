@@ -7,13 +7,13 @@
         <div class="page-content">
             <!--breadcrumb-->
             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                <div class="breadcrumb-title pe-3">Order Details </div>
+                <div class="breadcrumb-title pe-3">Detalii Comandă </div>
                 <div class="ps-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 p-0">
                             <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Invoice : <strong> <span
+                            <li class="breadcrumb-item active" aria-current="page">Chitanță : <strong> <span
                                         class="text-danger"> {{ $order->invoice_no }} </span> </strong> </li>
                         </ol>
                     </nav>
@@ -80,11 +80,38 @@
                                     <div class="card-body">
 
                                         <ul class="list-group">
-                                            <li class="list-group-item">An item</li>
-                                            <li class="list-group-item">A second item</li>
-                                            <li class="list-group-item">A third item</li>
-                                            <li class="list-group-item">A fourth item</li>
-                                            <li class="list-group-item">And a fifth one</li>
+                                            <li class="list-group-item"><strong> <span class="text-dark"> Metodă Plată
+                                                        : </span> </strong> {{ $order->payment_method }} </li>
+
+                                            <li class="list-group-item"><strong> <span class="text-dark"> Adresă
+                                                        Livrare : </span> </strong> {{ $order->delivery_address }} </li>
+
+                                            <li class="list-group-item"><strong> <span class="text-dark"> Oraș :
+                                                    </span> </strong> {{ $order->city }} </li>
+
+                                            <li class="list-group-item"><strong> <span class="text-dark"> Cost Livrare
+                                                        : </span> </strong> {{ $order->delivery_charge }} </li>
+
+                                            <li class="list-group-item"><strong> <span class="text-dark"> Data :
+                                                    </span> </strong> {{ $order->order_date }} </li>
+
+                                            <li class="list-group-item"><strong> <span class="text-dark"> Timp :
+                                                    </span> </strong> {{ $order->order_time }} </li>
+
+                                            <li class="list-group-item"><strong> <span class="text-dark"> Status
+                                                        : </span> </strong>
+
+                                                <span class="badge badge-pill"
+                                                    style="background: #FF0000;">{{ $order->order_status }}</span>
+                                            </li>
+
+                                            <br>
+
+                                            @if ($order->order_status == 'Pending')
+                                                <a href="" class="btn btn-block btn-success"> Procesare Comandă</a>
+                                            @elseif($order->order_status == 'Processing')
+                                                <a href="" class="btn btn-block btn-success"> Completare Comandă</a>
+                                            @endif
                                         </ul>
 
                                     </div>
