@@ -22,6 +22,7 @@ class CreateProductCartsTable extends Migration
             $table->string('size');
             $table->string('color');
             $table->string('quantity');
+            $table->string('max_quantity');
             $table->string('unit_price');
             $table->string('total_price');
             $table->timestamps();

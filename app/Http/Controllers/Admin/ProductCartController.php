@@ -21,6 +21,7 @@ class ProductCartController extends Controller
 
         $productDetails = Product::where('product_code', $product_code)->get();
 
+        $productMoreDetails = ProductDetails::where('product_id', $productDetails[0]['id'])->get();
         $price = $productDetails[0]['price'];
         $special_price = $productDetails[0]['special_price'];
 
@@ -41,6 +42,7 @@ class ProductCartController extends Controller
             'size' =>  $size,
             'color' => $color,
             'quantity' => $quantity,
+            'max_quantity' => $productMoreDetails[0]['qty'],
             'unit_price' => $unit_price,
             'total_price' => $total_price,
 
@@ -142,6 +144,13 @@ class ProductCartController extends Controller
 
             if ($resultInsert == 1) {
                 $resultDelete = ProductCart::where('id', $CartListItem['id'])->delete();
+                $productDetails = Product::where('product_code', $CartListItem['product_code'])->get();
+
+                $productMoreDetails = ProductDetails::where('product_id', $productDetails[0]['id'])->get();
+
+                $updateQty = intval($productMoreDetails[0]['qty']) - intval($CartListItem['quantity']);
+                ProductDetails::where('product_id', $productDetails[0]['id'])->update(['qty' => $updateQty]);
+
                 if ($resultDelete == 1) {
                     $cartInsertDeleteResult = 1;
                 } else {
