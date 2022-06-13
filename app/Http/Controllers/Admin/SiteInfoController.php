@@ -25,13 +25,15 @@ class SiteInfoController extends Controller
     {
 
         $siteinfo_id = $request->id;
+        $siteinfo_address = str_replace("<p>", "", $request->address);
+        $siteinfo_address = str_replace("</p>", "", $siteinfo_address);
 
         SiteInfo::findOrFail($siteinfo_id)->update([
             'about' => $request->about,
             'refund' => $request->refund,
             'purchase_guide' => $request->purchase_guide,
             'privacy' => $request->privacy,
-            'address' => $request->address,
+            'address' => $siteinfo_address,
             'android_app_link' => $request->android_app_link,
             'ios_app_link' => $request->ios_app_link,
             'facebook_link' => $request->facebook_link,
