@@ -8,6 +8,9 @@ use App\Models\ProductCart;
 use App\Models\Product;
 use App\Models\ProductDetails;
 use App\Models\CartOrder;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ConfirmOrderMail;
+
 
 class ProductCartController extends Controller
 {
@@ -153,6 +156,15 @@ class ProductCartController extends Controller
 
                 if ($resultDelete == 1) {
                     $cartInsertDeleteResult = 1;
+                    // Mail Send to User
+                    $orders = CartOrder::where('invoice_no', "SplashShop" . $invoice_no)->get();
+                    foreach ($orders as $order) {
+                        Mail::to($CartListItem['email'])->send(new ConfirmOrderMail($order));
+                    }
+                    // $userEmail = $CartListItem['email'];
+                    // $orders->each(function ($order, $key, $userEmail) {
+                    //     Mail::to($userEmail)->send(new ConfirmOrderMail($order));
+                    // });
                 } else {
                     $cartInsertDeleteResult = 0;
                 }
