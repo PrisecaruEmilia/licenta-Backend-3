@@ -8,7 +8,7 @@ use App\Models\Product;
 use App\Models\ProductDetails;
 use App\Models\Category;
 use App\Models\Subcategory;
-use Image;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -247,7 +247,7 @@ class ProductController extends Controller
         $image = $request->file('image');
         if ($image !== null) {
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(711, 960)->save('upload/product/' . $name_gen);
+            Image::make($image)->resize(500, 500)->save('upload/product/' . $name_gen);
             $save_url = 'http://127.0.0.1:8000/upload/product/' . $name_gen;
         } else {
             $save_url = $product->image;
@@ -277,7 +277,7 @@ class ProductController extends Controller
         $image1 = $request->file('image_one');
         if ($image1 !== null) {
             $name_gen1 = hexdec(uniqid()) . '.' . $image1->getClientOriginalExtension();
-            Image::make($image1)->resize(711, 960)->save('upload/productdetails/' . $name_gen1);
+            Image::make($image1)->resize(500, 500)->save('upload/productdetails/' . $name_gen1);
             $save_url1 = 'http://127.0.0.1:8000/upload/productdetails/' . $name_gen1;
         } else {
             $save_url1 = $details[0]->image_one;
@@ -288,7 +288,7 @@ class ProductController extends Controller
         $image2 = $request->file('image_two');
         if ($image2 !== null) {
             $name_gen2 = hexdec(uniqid()) . '.' . $image2->getClientOriginalExtension();
-            Image::make($image2)->resize(711, 960)->save('upload/productdetails/' . $name_gen2);
+            Image::make($image2)->resize(500, 500)->save('upload/productdetails/' . $name_gen2);
             $save_url2 = 'http://127.0.0.1:8000/upload/productdetails/' . $name_gen2;
         } else {
             $save_url2 = $details[0]->image_two;
@@ -299,7 +299,7 @@ class ProductController extends Controller
         $image3 = $request->file('image_three');
         if ($image3 !== null) {
             $name_gen3 = hexdec(uniqid()) . '.' . $image3->getClientOriginalExtension();
-            Image::make($image1)->resize(711, 960)->save('upload/productdetails/' . $name_gen3);
+            Image::make($image1)->resize(500, 500)->save('upload/productdetails/' . $name_gen3);
             $save_url3 = 'http://127.0.0.1:8000/upload/productdetails/' . $name_gen3;
         } else {
             $save_url3 = $details[0]->image_three;
@@ -311,7 +311,7 @@ class ProductController extends Controller
         $image4 = $request->file('image_four');
         if ($image4 !== null) {
             $name_gen4 = hexdec(uniqid()) . '.' . $image4->getClientOriginalExtension();
-            Image::make($image4)->resize(711, 960)->save('upload/productdetails/' . $name_gen4);
+            Image::make($image4)->resize(500, 500)->save('upload/productdetails/' . $name_gen4);
             $save_url4 = 'http://127.0.0.1:8000/upload/productdetails/' . $name_gen4;
         } else {
             $save_url4 = $details[0]->image_four;
