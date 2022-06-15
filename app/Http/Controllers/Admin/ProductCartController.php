@@ -121,9 +121,9 @@ class ProductCartController extends Controller
         $request_date = date("d-m-Y");
 
         $CartList = ProductCart::where('email', $email)->get();
-
+        $cartInsertDeleteResult = 0;
         foreach ($CartList as $CartListItem) {
-            $cartInsertDeleteResult = "";
+            // $cartInsertDeleteResult = "";
 
             $resultInsert = CartOrder::insert([
                 'invoice_no' => "SplashShop" . $invoice_no,
@@ -156,19 +156,16 @@ class ProductCartController extends Controller
 
                 if ($resultDelete == 1) {
                     $cartInsertDeleteResult = 1;
-                    // Mail Send to User
-                    $orders = CartOrder::where('invoice_no', "SplashShop" . $invoice_no)->get();
-                    foreach ($orders as $order) {
-                        Mail::to($CartListItem['email'])->send(new ConfirmOrderMail($order));
-                    }
-                    // $userEmail = $CartListItem['email'];
-                    // $orders->each(function ($order, $key, $userEmail) {
-                    //     Mail::to($userEmail)->send(new ConfirmOrderMail($order));
-                    // });
                 } else {
                     $cartInsertDeleteResult = 0;
                 }
             }
+        }
+
+        // Mail Send to User
+        $orders = CartOrder::where('invoice_no', "SplashShop" . $invoice_no)->get();
+        foreach ($orders as $order) {
+            Mail::to($email)->send(new ConfirmOrderMail($order));
         }
         return $cartInsertDeleteResult;
     }
