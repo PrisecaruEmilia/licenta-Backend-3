@@ -8,17 +8,17 @@
                     <div class="card radius-10 bg-gradient-deepblue">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
-                                <h5 class="mb-0 text-white">9526</h5>
+                                <h5 class="mb-0 text-white">{{ $totalOrders }}</h5>
                                 <div class="ms-auto">
                                     <i class='bx bx-cart fs-3 text-white'></i>
                                 </div>
                             </div>
                             <div class="progress my-3 bg-light-transparent" style="height:3px;">
-                                <div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25"
+                                <div class="progress-bar bg-white" role="progressbar" style="width: 25%" aria-valuenow="25"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div class="d-flex align-items-center text-white">
-                                <p class="mb-0">Total Orders</p>
+                                <p class="mb-0">Comenzi</p>
                                 <p class="mb-0 ms-auto">+4.2%<span><i class='bx bx-up-arrow-alt'></i></span></p>
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                     <div class="card radius-10 bg-gradient-orange">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
-                                <h5 class="mb-0 text-white">$8323</h5>
+                                <h5 class="mb-0 text-white">{{ $totalRevenue }} Lei</h5>
                                 <div class="ms-auto">
                                     <i class='bx bx-dollar fs-3 text-white'></i>
                                 </div>
@@ -38,7 +38,7 @@
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div class="d-flex align-items-center text-white">
-                                <p class="mb-0">Total Revenue</p>
+                                <p class="mb-0">Total Venituri</p>
                                 <p class="mb-0 ms-auto">+1.2%<span><i class='bx bx-up-arrow-alt'></i></span></p>
                             </div>
                         </div>
@@ -48,17 +48,17 @@
                     <div class="card radius-10 bg-gradient-ohhappiness">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
-                                <h5 class="mb-0 text-white">6200</h5>
+                                <h5 class="mb-0 text-white">{{ $totalVisitors }}</h5>
                                 <div class="ms-auto">
                                     <i class='bx bx-group fs-3 text-white'></i>
                                 </div>
                             </div>
                             <div class="progress my-3 bg-light-transparent" style="height:3px;">
-                                <div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25"
+                                <div class="progress-bar bg-white" role="progressbar" style="width: 75%" aria-valuenow="25"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div class="d-flex align-items-center text-white">
-                                <p class="mb-0">Visitors</p>
+                                <p class="mb-0">Vizitori</p>
                                 <p class="mb-0 ms-auto">+5.2%<span><i class='bx bx-up-arrow-alt'></i></span></p>
                             </div>
                         </div>
@@ -68,17 +68,17 @@
                     <div class="card radius-10 bg-gradient-ibiza">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
-                                <h5 class="mb-0 text-white">5630</h5>
+                                <h5 class="mb-0 text-white">{{ $totalMessages }}</h5>
                                 <div class="ms-auto">
                                     <i class='bx bx-envelope fs-3 text-white'></i>
                                 </div>
                             </div>
                             <div class="progress my-3 bg-light-transparent" style="height:3px;">
-                                <div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25"
+                                <div class="progress-bar bg-white" role="progressbar" style="width: 10%" aria-valuenow="25"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div class="d-flex align-items-center text-white">
-                                <p class="mb-0">Messages</p>
+                                <p class="mb-0">Mesaje</p>
                                 <p class="mb-0 ms-auto">+2.2%<span><i class='bx bx-up-arrow-alt'></i></span></p>
                             </div>
                         </div>
@@ -86,12 +86,69 @@
                 </div>
             </div>
             <!--end row-->
+            <div class="card radius-10 w-100">
+                <div class="card-header border-bottom bg-transparent">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <h6 class="mb-0">Review-uri</h6>
+                        </div>
+                        <div class="font-22 ms-auto"><i class="bx bx-dots-horizontal-rounded"></i>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    @foreach ($reviews as $item)
+                        <li class="list-group-item bg-transparent">
+                            <div class="d-flex align-items-center">
+                                <img src={{ $item->reviewer_photo }} alt="user avatar" class="rounded-circle" width="55"
+                                    height="55">
+                                <div class="ms-3">
+                                    <h6 class="mb-2">{{ $item->product_name }} - {{ $item->reviewer_name }}
+                                    </h6>
+                                    <p class="mb-0 small-font">{{ substr($item->reviewer_comments, 0, 50) }}...</p>
+                                </div>
+                                <div class="ms-auto star d-none d-md-block">
+
+                                    @if ($item->reviewer_rating === '1')
+                                        <i class="bx bxs-star text-warning"></i>
+                                    @elseif ($item->reviewer_rating === '2')
+                                        <i class="bx bxs-star text-warning"></i>
+                                        <i class="bx bxs-star text-warning"></i>
+                                    @elseif ($item->reviewer_rating === '3')
+                                        <i class="bx bxs-star text-warning"></i>
+                                        <i class="bx bxs-star text-warning"></i>
+                                        <i class="bx bxs-star text-warning"></i>
+                                    @elseif ($item->reviewer_rating === '4')
+                                        <i class="bx bxs-star text-warning"></i>
+                                        <i class="bx bxs-star text-warning"></i>
+                                        <i class="bx bxs-star text-warning"></i>
+                                        <i class="bx bxs-star text-warning"></i>
+                                    @else
+                                        <i class="bx bxs-star text-warning"></i>
+                                        <i class="bx bxs-star text-warning"></i>
+                                        <i class="bx bxs-star text-warning"></i>
+                                        <i class="bx bxs-star text-warning"></i>
+                                        <i class="bx bxs-star text-warning"></i>
+                                    @endif
+                                    @php
+                                        $limit = 5 - $item->reviewer_rating;
+                                    @endphp
+                                    @for ($i = 0; $i < $limit; $i++)
+                                        <i class="bx bxs-star text-light-4"></i>
+                                    @endfor
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
 
             <div class="card radius-10">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div>
-                            <h5 class="mb-0">Orders Summary</h5>
+                            <h5 class="mb-0">Rezumatul comenzilor
+                            </h5>
                         </div>
                         <div class="font-22 ms-auto"><i class="bx bx-dots-horizontal-rounded"></i>
                         </div>
@@ -101,207 +158,42 @@
                         <table class="table align-middle mb-0">
                             <thead class="table-light">
                                 <tr>
-                                    <th>Order id</th>
-                                    <th>Product</th>
-                                    <th>Customer</th>
-                                    <th>Date</th>
-                                    <th>Price</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th>SL</th>
+                                    <th>Nume Produs </th>
+                                    <th>Nr. Chitanță </th>
+                                    <th>Cantitate </th>
+                                    <th>Preț Total </th>
+                                    <th>Data </th>
+                                    <th>Status </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>#897656</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="recent-product-img">
-                                                <img src="{{ asset('backend/assets/images/icons/chair.png') }}" alt="">
-                                            </div>
-                                            <div class="ms-2">
-                                                <h6 class="mb-1 font-14">Light Blue Chair</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Brooklyn Zeo</td>
-                                    <td>12 Jul 2020</td>
-                                    <td>$64.00</td>
-                                    <td>
-                                        <div class="badge rounded-pill bg-light-info text-info w-100">In Progress
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex order-actions"> <a href="javascript:;" class=""><i
-                                                    class="bx bx-cog"></i></a>
-                                            <a href="javascript:;" class="ms-4"><i
-                                                    class="bx bx-down-arrow-alt"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#987549</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="recent-product-img">
-                                                <img src="{{ asset('backend/assets/images/icons/shoes.png') }}" alt="">
-                                            </div>
-                                            <div class="ms-2">
-                                                <h6 class="mb-1 font-14">Green Sport Shoes</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Martin Hughes</td>
-                                    <td>14 Jul 2020</td>
-                                    <td>$45.00</td>
-                                    <td>
-                                        <div class="badge rounded-pill bg-light-success text-success w-100">
-                                            Completed</div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex order-actions"> <a href="javascript:;" class=""><i
-                                                    class="bx bx-cog"></i></a>
-                                            <a href="javascript:;" class="ms-4"><i
-                                                    class="bx bx-down-arrow-alt"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#685749</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="recent-product-img">
-                                                <img src="{{ asset('backend/assets/images/icons/headphones.png') }}"
-                                                    alt="">
-                                            </div>
-                                            <div class="ms-2">
-                                                <h6 class="mb-1 font-14">Red Headphone 07</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Shoan Stephen</td>
-                                    <td>15 Jul 2020</td>
-                                    <td>$67.00</td>
-                                    <td>
-                                        <div class="badge rounded-pill bg-light-danger text-danger w-100">Cancelled
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex order-actions"> <a href="javascript:;" class=""><i
-                                                    class="bx bx-cog"></i></a>
-                                            <a href="javascript:;" class="ms-4"><i
-                                                    class="bx bx-down-arrow-alt"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#887459</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="recent-product-img">
-                                                <img src="{{ asset('backend/assets/images/icons/idea.png') }}" alt="">
-                                            </div>
-                                            <div class="ms-2">
-                                                <h6 class="mb-1 font-14">Mini Laptop Device</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Alister Campel</td>
-                                    <td>18 Jul 2020</td>
-                                    <td>$87.00</td>
-                                    <td>
-                                        <div class="badge rounded-pill bg-light-success text-success w-100">
-                                            Completed</div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex order-actions"> <a href="javascript:;" class=""><i
-                                                    class="bx bx-cog"></i></a>
-                                            <a href="javascript:;" class="ms-4"><i
-                                                    class="bx bx-down-arrow-alt"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#335428</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="recent-product-img">
-                                                <img src="{{ asset('backend/assets/images/icons/user-interface.png') }}"
-                                                    alt="">
-                                            </div>
-                                            <div class="ms-2">
-                                                <h6 class="mb-1 font-14">Purple Mobile Phone</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Keate Medona</td>
-                                    <td>20 Jul 2020</td>
-                                    <td>$75.00</td>
-                                    <td>
-                                        <div class="badge rounded-pill bg-light-info text-info w-100">In Progress
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex order-actions"> <a href="javascript:;"
-                                                class=""><i class="bx bx-cog"></i></a>
-                                            <a href="javascript:;" class="ms-4"><i
-                                                    class="bx bx-down-arrow-alt"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#224578</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="recent-product-img">
-                                                <img src="{{ asset('backend/assets/images/icons/watch.png') }}" alt="">
-                                            </div>
-                                            <div class="ms-2">
-                                                <h6 class="mb-1 font-14">Smart Hand Watch</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Winslet Maya</td>
-                                    <td>22 Jul 2020</td>
-                                    <td>$80.00</td>
-                                    <td>
-                                        <div class="badge rounded-pill bg-light-danger text-danger w-100">Cancelled
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex order-actions"> <a href="javascript:;"
-                                                class=""><i class="bx bx-cog"></i></a>
-                                            <a href="javascript:;" class="ms-4"><i
-                                                    class="bx bx-down-arrow-alt"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#447896</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="recent-product-img">
-                                                <img src="{{ asset('backend/assets/images/icons/tshirt.png') }}" alt="">
-                                            </div>
-                                            <div class="ms-2">
-                                                <h6 class="mb-1 font-14">T-Shirt Blue</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Emy Jackson</td>
-                                    <td>28 Jul 2020</td>
-                                    <td>$96.00</td>
-                                    <td>
-                                        <div class="badge rounded-pill bg-light-success text-success w-100">
-                                            Completed</div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex order-actions"> <a href="javascript:;"
-                                                class=""><i class="bx bx-cog"></i></a>
-                                            <a href="javascript:;" class="ms-4"><i
-                                                    class="bx bx-down-arrow-alt"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @php($i = 1)
+                                @foreach ($orders as $item)
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+
+                                        <td>{{ $item->product_name }}</td>
+                                        <td>{{ $item->invoice_no }}</td>
+                                        <td>{{ $item->quantity }}</td>
+                                        <td>{{ $item->total_price }}</td>
+                                        <td>{{ $item->order_date }}</td>
+                                        <td>
+                                            @if ($item->order_status === 'Pending')
+                                                <div class="badge rounded-pill bg-light-danger text-danger w-100">
+                                                    {{ $item->order_status }}</div>
+                                            @elseif ($item->order_status === 'Processing')
+                                                <div class="badge rounded-pill bg-light-info text-info w-100">
+                                                    {{ $item->order_status }}</div>
+                                            @else
+                                                <div class="badge rounded-pill bg-light-success text-success w-100">
+                                                    {{ $item->order_status }}</div>
+                                            @endif
+
+                                        </td>
+                                    </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
                     </div>

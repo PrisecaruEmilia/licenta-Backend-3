@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SiteInfoController;
 use App\Http\Controllers\Admin\ProductCartController;
+use App\Http\Controllers\Admin\StatisticController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,9 +32,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.index');
-    })->name('dashboard');
+    Route::get('/dashboard', [StatisticController::class, 'Statistic'])->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('admin.index');
+    // })->name('dashboard');
 });
 
 // admin logout route
