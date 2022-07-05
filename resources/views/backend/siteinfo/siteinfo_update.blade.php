@@ -47,7 +47,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">About </h6>
+                                                <h6 class="mb-0">Despre </h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <textarea id="mytextarea" name="about"> {{ $siteinfo->about }} </textarea>
@@ -58,7 +58,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">Refund Policy </h6>
+                                                <h6 class="mb-0">Politica de rambursare </h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <textarea id="mytextarea1" name="refund"> {{ $siteinfo->refund }} </textarea>
@@ -69,7 +69,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">How To Purchase </h6>
+                                                <h6 class="mb-0">Politica de cumpărare </h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <textarea id="mytextarea2" name="purchase_guide"> {{ $siteinfo->purchase_guide }} </textarea>
@@ -80,7 +80,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">Privacy Policy </h6>
+                                                <h6 class="mb-0">Politica de confidențialitate </h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <textarea id="mytextarea3" name="privacy"> {{ $siteinfo->privacy }} </textarea>
@@ -90,7 +90,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">Address </h6>
+                                                <h6 class="mb-0">Adresa </h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <textarea id="mytextarea4" name="address"> {{ $siteinfo->address }} </textarea>

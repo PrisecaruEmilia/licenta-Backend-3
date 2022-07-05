@@ -49,7 +49,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="inputProductCode" class="form-label">Code</label>
+                                            <label for="inputProductCode" class="form-label">Cod</label>
                                             <input type="text" name="product_code" class="form-control"
                                                 id="inputProductCode">
                                         </div>
@@ -103,7 +103,7 @@
                                         <div class="mb-3">
                                             <label for="inputProductLongDescription" class="form-label">Descriere
                                                 Lungă</label>
-                                            <textarea id="mytextarea" name="long_description">Hello, World!</textarea>
+                                            <textarea id="mytextarea" name="long_description">Pentru descriere urmează exemplul: Fără toc;Șireturi din material;Șireturi;Nu;Rotund;348 g;11 cm;3 cm</textarea>
                                         </div>
 
                                     </div>
@@ -130,7 +130,8 @@
 
                                             <div class="col-12">
                                                 <label for="inputQty" class="form-label">Cantitate</label>
-                                                <input type="text" name="qty" class="form-control" id="inputQty">
+                                                <input type="text" name="qty" class="form-control"
+                                                    id="inputQty">
                                             </div>
 
 
@@ -195,8 +196,8 @@
                                             </div>
 
                                             <div class="form-check">
-                                                <input class="form-check-input" name="remark" type="checkbox" value="new"
-                                                    id="flexCheckDefault">
+                                                <input class="form-check-input" name="remark" type="checkbox"
+                                                    value="new" id="flexCheckDefault">
                                                 <label class="form-check-label" for="flexCheckDefault">new</label>
                                             </div>
 

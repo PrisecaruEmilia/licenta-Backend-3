@@ -50,7 +50,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="inputProductCode" class="form-label">Code</label>
+                                            <label for="inputProductCode" class="form-label">Cod</label>
                                             <input type="text" name="product_code" class="form-control"
                                                 id="inputProductCode" value="{{ $product->product_code }}">
                                         </div>
@@ -145,8 +145,8 @@
                                         <div class="row g-3">
                                             <div class="col-md-6">
                                                 <label for="inputPrice" class="form-label">Preț</label>
-                                                <input type="text" name="price" class="form-control" id="inputPrice"
-                                                    value="{{ $product->price }}">
+                                                <input type="text" name="price" class="form-control"
+                                                    id="inputPrice" value="{{ $product->price }}">
                                             </div>
 
 
@@ -160,8 +160,8 @@
                                             @foreach ($details as $item)
                                                 <div class="col-12">
                                                     <label for="inputQty" class="form-label">Cantitate</label>
-                                                    <input type="text" name="qty" class="form-control" id="inputQty"
-                                                        value="{{ $item->qty }}">
+                                                    <input type="text" name="qty" class="form-control"
+                                                        id="inputQty" value="{{ $item->qty }}">
                                                 </div>
                                             @endforeach
                                             {{-- !! --}}
@@ -211,15 +211,17 @@
                                             @foreach ($details as $item)
                                                 <div class="mb-3">
                                                     <label class="form-label">Mărime</label>
-                                                    <input type="text" name="size" class="form-control visually-hidden"
-                                                        data-role="tagsinput" value="{{ $item->size }}">
+                                                    <input type="text" name="size"
+                                                        class="form-control visually-hidden" data-role="tagsinput"
+                                                        value="{{ $item->size }}">
                                                 </div>
 
 
                                                 <div class="mb-3">
                                                     <label class="form-label">Culoare</label>
-                                                    <input type="text" name="color" class="form-control visually-hidden"
-                                                        data-role="tagsinput" value={{ $item->color }}>
+                                                    <input type="text" name="color"
+                                                        class="form-control visually-hidden" data-role="tagsinput"
+                                                        value={{ $item->color }}>
                                                 </div>
                                             @endforeach
                                             <div class="form-check">
@@ -230,8 +232,8 @@
                                             </div>
 
                                             <div class="form-check">
-                                                <input class="form-check-input" name="remark" type="checkbox" value="new"
-                                                    id="flexCheckDefault2"
+                                                <input class="form-check-input" name="remark" type="checkbox"
+                                                    value="new" id="flexCheckDefault2"
                                                     {{ $product->remark == 'new' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="flexCheckDefault2">new</label>
                                             </div>
